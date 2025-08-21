@@ -1,132 +1,185 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Francisco Anaya Palacios — Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Francisco Anaya Palacios — Robotics & AI Engineer</title>
+  <meta name="description" content="Robotics, Computer Vision, AI & Data Science. Honors Thesis, public dataset (DOI), European R&D projects." />
+  
+  <!-- Fuentes elegantes tipo editorial/luxury -->
   <link href="https://fonts.googleapis.com/css2?family=Didot&family=Playfair+Display:wght@400;600&family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+  
   <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --accent: #bfa36f; /* dorado elegante */
-      --muted: #6b7280;
+    :root{
+      --bg:#0b1020;--panel:#111827;--fg:#e6eaf2;--muted:#9aa4b2;
+      --accent:#bfa36f; /* dorado elegante */
+      --hfont:"Didot","Playfair Display",serif;
+      --bfont:"Poppins",sans-serif;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      font-weight: 300;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      background:linear-gradient(180deg,#0a0f1e 0%,#0b1020 50%,#0e1426 100%);
+      color:var(--fg);
+      font-family:var(--bfont);
+      -webkit-font-smoothing:antialiased;
     }
-    header {
-      text-align: center;
-      padding: 80px 20px;
-      border-bottom: 1px solid #e5e5e5;
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    
+    .container{max-width:1040px;margin:0 auto;padding:24px}
+    
+    header{
+      padding:56px 0 24px;
+      border-bottom:1px solid var(--panel);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;align-items:center;
     }
-    header h1 {
-      font-family: 'Didot', 'Playfair Display', serif;
-      font-size: 54px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+    .intro h1{
+      font-family:var(--hfont);
+      font-size:46px;
+      letter-spacing:1px;
+      margin:0 0 10px;
+      color:var(--accent);
     }
-    header p {
-      font-size: 18px;
-      color: var(--muted);
+    .subtitle{margin:6px 0;color:var(--muted);font-size:18px}
+    
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{background:var(--accent);color:#071018;padding:10px 14px;
+      border-radius:12px;font-weight:600;
+      box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .btn.secondary{background:transparent;color:var(--fg);border:1px solid var(--panel)}
+    
+    section{padding:40px 0}
+    h2{
+      font-family:var(--hfont);
+      font-size:26px;
+      margin:4px 0 20px;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      border-bottom:1px solid var(--accent);
+      display:inline-block;
+      padding-bottom:6px;
     }
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 20px;
+    
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--panel);
+      border-radius:16px;
+      padding:22px;
+      margin-bottom:22px;
     }
-    section {
-      margin-bottom: 80px;
+    .card h3{
+      font-family:var(--hfont);
+      font-size:20px;
+      margin:0 0 6px;
+      color:var(--fg);
     }
-    h2 {
-      font-family: 'Didot', serif;
-      font-size: 28px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 30px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 6px;
+    .meta{color:var(--muted);font-size:14px;margin-bottom:10px;font-style:italic}
+    .card ul{margin:8px 0 0 18px;padding:0}
+    .card li{margin:6px 0}
+    
+    .links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;font-size:15px}
+    
+    footer{
+      border-top:1px solid var(--panel);
+      padding:28px 0;
+      color:var(--muted);
+      text-align:center;
+      margin-top:8px;
+      font-size:14px;
     }
-    .project {
-      margin-bottom: 50px;
+    
+    /* Avatar elegante */
+    .avatar-wrap{
+      width:220px;
+      border-radius:18px;
+      padding:6px;
+      background:linear-gradient(145deg,#bfa36f55,#d4c29a33);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    .project h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      margin-bottom: 8px;
+    .avatar{
+      width:100%;height:auto;display:block;
+      border-radius:14px;
+      object-fit:contain;
     }
-    .meta {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-    .project p {
-      max-width: 800px;
-      font-size: 16px;
-      margin-bottom: 14px;
-    }
-    a {
-      color: var(--fg);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      transition: all .2s;
-    }
-    a:hover { color: var(--accent); }
-    footer {
-      text-align: center;
-      font-size: 14px;
-      color: var(--muted);
-      padding: 40px 20px;
-      border-top: 1px solid #e5e5e5;
-    }
+    
+    /* Chips opcionales */
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{background:#0f172a;border:1px solid #1f2937;border-radius:999px;
+      padding:6px 12px;font-size:12px;color:var(--muted);letter-spacing:.5px}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Francisco Anaya Palacios</h1>
-    <p>Robotics · Computer Vision · AI · Data Science</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>Projects</h2>
-
-      <div class="project">
-        <h3>🚀 Thesis — 3D LiDAR-Based Outdoor Mapping & SLAM</h3>
-        <div class="meta">University of Málaga · Honors</div>
-        <p>Designed and implemented a full-stack robotic system for autonomous navigation in GPS-denied environments. Integrated LiDAR, RGB-D, IMU, and GPS-RTK within ROS2. Validated robustness with real-world testing.</p>
-        <p><a href="https://github.com/FranciscoAnayaPalacios/TFG">GitHub</a> · <a href="https://doi.org/10.5281/zenodo.15301791">Dataset DOI</a></p>
+  <div class="container">
+    <header>
+      <div class="intro">
+        <h1>Francisco Anaya Palacios</h1>
+        <div class="subtitle">Robotics • Computer Vision • AI • Data Science</div>
+        <div class="cta" role="navigation" aria-label="Primary">
+          <a class="btn" href="cv.pdf">⬇ Download CV (PDF)</a>
+          <a class="btn secondary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#about">About</a>
+        </div>
+        <div class="chips" aria-hidden="true">
+          <span class="chip">ROS2</span><span class="chip">SLAM</span><span class="chip">LiDAR</span>
+          <span class="chip">FAST-LIO2</span><span class="chip">OpenCV</span><span class="chip">Python/C++</span>
+        </div>
       </div>
-
-      <div class="project">
-        <h3>🧬 Computer Vision — Droplet & Cell Detection</h3>
-        <div class="meta">University of Liège · Best performance in class</div>
-        <p>Algorithm for detecting and counting microdroplets and encapsulated cells using background subtraction and contour analysis. Achieved &lt;5% error, recognized for highest accuracy in class.</p>
+      <div class="avatar-wrap">
+        <img class="avatar" src="me.jpg" alt="Portrait of Francisco Anaya Palacios">
       </div>
-
-      <div class="project">
-        <h3>🌍 European R&D — Data Science & Innovation (Cetaqua)</h3>
-        <div class="meta">Environmental AI · Data Pipelines</div>
-        <p>Automation of large-scale environmental data pipelines. Built predictive models with statistical and geometric analysis. Applied causality tests and temporal analysis to enable high-precision forecasting.</p>
-      </div>
-    </section>
-
-    <section>
+    </header>
+    
+    <section id="about">
       <h2>About</h2>
-      <p>Engineer specialized in <b>Robotics</b>, <b>Computer Vision</b> and <b>Data Science</b>.  
-      Passionate about <b>architecture, photography, human behavior, health and sports</b>.  
-      Always seeking precision, elegance, and impact in technology and life.</p>
+      <div class="card">
+        <p>Engineer specialized in <b>Robotics</b>, <b>Computer Vision</b>, and <b>Data Science</b>.  
+        I design and ship autonomous systems with emphasis on <b>geometry, reproducibility, and elegance</b>.  
+        Passionate about architecture, photography, and human behavior.</p>
+      </div>
     </section>
-  </main>
-
-  <footer>
-    © 2025 Francisco Anaya Palacios · All rights reserved
-  </footer>
+    
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>🚀 Thesis — 3D LiDAR-Based Outdoor Mapping & Autonomous Navigation (SLAM)</h3>
+        <div class="meta">University of Málaga · Honors</div>
+        <ul>
+          <li>Integrated <b>LiDAR, RGB-D, IMU & GPS-RTK</b> in ROS2.</li>
+          <li>Implemented <b>ICP</b> and <b>FAST-LIO2</b> for GPS-denied SLAM.</li>
+          <li>Validated on Agilex Hunter 2.0 UGV with reproducible metrics.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/FranciscoAnayaPalacios/TFG">GitHub</a>
+          <a href="https://doi.org/10.5281/zenodo.15301791">Dataset DOI</a>
+          <a href="tesis.pdf">Thesis PDF</a>
+          <a href="slides.pdf">Slides</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>🌍 European R&D — Data Science & Innovation</h3>
+        <div class="meta">Cetaqua</div>
+        <ul>
+          <li>Built scalable <b>data pipelines</b> & <b>statistical models</b>.</li>
+          <li>Applied <b>Granger causality</b> & forecasting under non-linear dynamics.</li>
+          <li>Automated reporting with Python & Google Apps Script.</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3>🧬 Computer Vision — Droplet & Cell Detection</h3>
+        <div class="meta">University of Liège · Best in class</div>
+        <ul>
+          <li>Detection of <b>microdroplets & encapsulated cells</b> with &lt;5% error.</li>
+          <li>Validated against Cytomine ground truth datasets.</li>
+        </ul>
+      </div>
+    </section>
+    
+    <footer>© 2025 Francisco Anaya Palacios — Portfolio</footer>
+  </div>
 </body>
 </html>
