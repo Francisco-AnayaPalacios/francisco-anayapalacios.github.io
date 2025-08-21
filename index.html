@@ -24,48 +24,146 @@
       font-family:var(--bfont);
       -webkit-font-smoothing:antialiased;
     }
-    a{color:var(--accent);text-decoration:none;transition:all .25s ease;cursor:pointer}
-    a:hover{color:#fff;text-shadow:0 0 6px var(--accent)}
+
+    /* Links con brillo un poco más intenso */
+    a{
+      color:var(--accent);
+      text-decoration:none;
+      transition:all .28s ease;
+      cursor:pointer;
+    }
+    a:hover{
+      color:#fff;
+      text-shadow:0 0 10px rgba(191,163,111,.65), 0 0 18px rgba(191,163,111,.35);
+    }
+
     .container{max-width:1040px;margin:0 auto;padding:24px}
-    header{padding:56px 0 24px;border-bottom:1px solid var(--panel);
-      display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
-    .intro h1{font-family:var(--hfont);font-size:46px;letter-spacing:1px;margin:0 0 10px;color:var(--accent)}
+
+    /* Header */
+    header{
+      padding:56px 0 24px;
+      border-bottom:1px solid var(--panel);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;align-items:center;
+    }
+    .intro h1{
+      font-family:var(--hfont);
+      font-size:46px;
+      letter-spacing:1px;
+      margin:0 0 10px;
+      color:var(--accent);
+    }
     .subtitle{margin:6px 0;color:var(--muted);font-size:18px}
+
+    /* Buttons con hover más marcado */
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{background:var(--accent);color:#071018;padding:10px 16px;border-radius:12px;
-      font-weight:600;box-shadow:0 6px 14px rgba(0,0,0,.3);transition:all .25s ease}
-    .btn.secondary{background:transparent;color:var(--fg);border:1px solid var(--panel)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.45)}
+    .btn{
+      background:var(--accent);
+      color:#071018;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:600;
+      box-shadow:0 6px 16px rgba(0,0,0,.34);
+      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--fg);
+      border:1px solid var(--panel);
+    }
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(0,0,0,.55);
+      filter: drop-shadow(0 0 8px rgba(191,163,111,.35));
+    }
+
+    /* Secciones con scroll-reveal (slide-up) */
     section{padding:50px 0}
-    h2{font-family:var(--hfont);font-size:26px;margin:4px 0 24px;color:var(--accent);
-      text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid var(--accent);
-      display:inline-block;padding-bottom:6px}
-    .card{background:rgba(255,255,255,.03);border:1px solid var(--panel);
-      border-radius:16px;padding:22px;margin-bottom:26px;transition:all .3s ease}
-    .card:hover{box-shadow:0 12px 28px rgba(0,0,0,.35);transform:translateY(-2px)}
-    .card h3{font-family:var(--hfont);font-size:20px;margin:0 0 8px;color:var(--fg);transition:color .3s ease}
-    .card:hover h3{color:var(--accent)}
+    .reveal{
+      opacity:0;
+      transform:translateY(36px);
+      transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1);
+      will-change:opacity, transform;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    h2{
+      font-family:var(--hfont);
+      font-size:26px;
+      margin:4px 0 24px;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      border-bottom:1px solid var(--accent);
+      display:inline-block;
+      padding-bottom:6px;
+    }
+
+    /* Cards con mayor realce en hover */
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--panel);
+      border-radius:16px;
+      padding:22px;
+      margin-bottom:26px;
+      transition:transform .32s ease, box-shadow .32s ease, filter .32s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,.42);
+      filter: drop-shadow(0 0 10px rgba(191,163,111,.20));
+    }
+    .card h3{
+      font-family:var(--hfont);
+      font-size:20px;
+      margin:0 0 8px;
+      color:var(--fg);
+      transition:color .3s ease, text-shadow .3s ease;
+    }
+    .card:hover h3{
+      color:var(--accent);
+      text-shadow:0 0 8px rgba(191,163,111,.35);
+    }
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px;font-style:italic}
     .card ul{margin:8px 0 0 18px;padding:0}
     .card li{margin:6px 0}
     .links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;font-size:15px}
-    .avatar-wrap{width:220px;border-radius:18px;padding:6px;
-      background:linear-gradient(145deg,#bfa36f55,#d4c29a33);
-      box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .avatar{width:100%;height:auto;display:block;border-radius:14px;object-fit:contain}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .chip{background:#0f172a;border:1px solid #1f2937;border-radius:999px;padding:6px 12px;
-      font-size:12px;color:var(--muted);letter-spacing:.5px;transition:all .25s ease}
-    .chip:hover{color:var(--accent);border-color:var(--accent);cursor:default}
-    footer{border-top:1px solid var(--panel);padding:28px 0;color:var(--muted);
-      text-align:center;margin-top:8px;font-size:14px}
 
-    /* Concept map styles */
+    /* Avatar elegante */
+    .avatar-wrap{
+      width:220px;border-radius:18px;padding:6px;
+      background:linear-gradient(145deg,#bfa36f55,#d4c29a33);
+      box-shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    .avatar{width:100%;height:auto;display:block;border-radius:14px;object-fit:contain}
+
+    /* Chips */
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{
+      background:#0f172a;border:1px solid #1f2937;border-radius:999px;
+      padding:6px 12px;font-size:12px;color:var(--muted);letter-spacing:.5px;
+      transition:all .25s ease;
+    }
+    .chip:hover{color:var(--accent);border-color:var(--accent);cursor:default;}
+
+    footer{
+      border-top:1px solid var(--panel);padding:28px 0;color:var(--muted);
+      text-align:center;margin-top:8px;font-size:14px
+    }
+
+    /* Concept map styles + brillo un poco mayor */
     #interest-map svg { display:block; width:100%; height:100%; }
     .bubble { fill: rgba(255,255,255,0.05); stroke: var(--panel); stroke-width: 1px;
       transition: fill .2s ease, stroke .2s ease, filter .2s ease; }
-    .bubble:hover { fill: rgba(191,163,111,0.22); stroke: var(--accent);
-      filter: drop-shadow(0 6px 14px rgba(191,163,111,0.20)); }
+    .bubble:hover {
+      fill: rgba(191,163,111,0.26);
+      stroke: var(--accent);
+      filter: drop-shadow(0 6px 18px rgba(191,163,111,0.28)); /* ++ */
+    }
     .label { font-family: var(--bfont); font-weight: 400; font-size: 13px; fill: var(--fg);
       pointer-events: none; text-anchor: middle; }
     .label-strong { font-family: var(--hfont); font-weight: 600; letter-spacing: .3px; }
@@ -78,7 +176,7 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    <header class="reveal">
       <div class="intro">
         <h1>Francisco Anaya Palacios</h1>
         <div class="subtitle">Robotics • Computer Vision • AI • Data Science</div>
@@ -98,7 +196,7 @@
       </div>
     </header>
 
-    <section id="about">
+    <section id="about" class="reveal">
       <h2>About</h2>
       <div class="card">
         <p>Engineer specialized in <b>Robotics</b>, <b>Computer Vision</b>, and <b>Data Science</b>.  
@@ -107,7 +205,7 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="reveal">
       <h2>Projects</h2>
       <div class="card">
         <h3>🚀 Thesis — 3D LiDAR-Based Outdoor Mapping & Autonomous Navigation (SLAM)</h3>
@@ -143,7 +241,7 @@
       </div>
     </section>
 
-    <section id="interests" aria-labelledby="interests-h">
+    <section id="interests" aria-labelledby="interests-h" class="reveal">
       <h2 id="interests-h">Interests</h2>
       <div class="card" style="overflow:hidden;">
         <noscript>
@@ -165,76 +263,105 @@
       </div>
     </section>
 
-    <footer>© 2025 Francisco Anaya Palacios — Portfolio</footer>
+    <footer class="reveal">© 2025 Francisco Anaya Palacios — Portfolio</footer>
   </div>
 
-<script>
-(function(){
-  const interests = [
-    { text: "Robotics & Autonomous Navigation", weight: 10, group:"Robotics" },
-    { text: "Computer Vision & Artificial Intelligence", weight: 10, group:"AI" },
-    { text: "Aerospace & Space Robotics", weight: 8, group:"Robotics" },
-    { text: "Climate & Environmental Data Science", weight: 7, group:"Data" },
-    { text: "Human Health & Well-being", weight: 6, group:"Human" },
-    { text: "Psychology, Human Behavior & Learning", weight: 8, group:"Human" },
-    { text: "Perfection & Performance Optimization", weight: 7, group:"Human" },
-    { text: "Running, Endurance & Sports Science", weight: 6, group:"Human" },
-    { text: "Languages, Culture & Travel", weight: 6, group:"Human" },
-    { text: "Photography & Videography", weight: 5, group:"Art" },
-  ];
-  const container = document.getElementById('interest-map');
-  const W = container.clientWidth, H = container.clientHeight;
-  const svg = d3.select(container).append('svg')
-    .attr('viewBox', `0 0 ${W} ${H}`)
-    .attr('preserveAspectRatio','xMidYMid meet');
-  const r = d3.scaleSqrt().domain([5,10]).range([34,72]);
-  const groups = Array.from(new Set(interests.map(d=>d.group)));
-  const groupAnchors = groups.map((g,i)=> ({fx:(W/(groups.length+1))*(i+1),fy:H*0.45,group:g,anchor:true}));
-  const nodes = interests.map(d=>({...d,radius:r(d.weight),x:Math.random()*W,y:Math.random()*H,pinned:false}));
-  const allNodes = nodes.concat(groupAnchors);
-  const sim = d3.forceSimulation(allNodes)
-    .force('charge', d3.forceManyBody().strength(-40))
-    .force('collide', d3.forceCollide().radius(d=> (d.anchor?0:d.radius+6)).iterations(2))
-    .force('x', d3.forceX(d=>{const a=groupAnchors.find(g=>g.group===d.group);return a?a.fx:W/2}).strength(d=>d.anchor?0:0.04))
-    .force('y', d3.forceY(d=>{const a=groupAnchors.find(g=>g.group===d.group);return a?a.fy:H/2}).strength(d=>d.anchor?0:0.04))
-    .alpha(1).alphaDecay(0.03);
-  const linksData = nodes.map(n=>{const a=groupAnchors.find(g=>g.group===n.group);return {source:a,target:n}});
-  const links = svg.append('g').attr('stroke','rgba(255,255,255,0.06)').attr('stroke-width',1)
-    .selectAll('line').data(linksData).enter().append('line');
-  const g = svg.append('g');
-  const bubbles = g.selectAll('g.node').data(nodes).enter().append('g').attr('class','node')
-    .call(d3.drag().on('start',dragstarted).on('drag',dragged).on('end',dragended));
-  bubbles.append('circle').attr('class','bubble').attr('r',d=>d.radius);
-  bubbles.append('text').attr('class','label').each(function(d){
-    const maxChars=22,words=d.text.split(' ');let line=[],lines=[];
-    words.forEach(w=>{const test=[...line,w].join(' ');if(test.length>maxChars){lines.push(line.join(' '));line=[w]}else line.push(w)});
-    lines.push(line.join(' '));
-    d3.select(this).selectAll('tspan').data(lines).enter().append('tspan')
-      .attr('x',0).attr('dy',(l,i)=> i===0?'0':'1.2em').text(l=>l);
-  });
-  bubbles.on('mouseenter',function(e,d){
-    d3.select(this).select('circle').attr('stroke',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()).attr('stroke-width',2);
-    d3.select(this).select('text').classed('label-strong',true);
-  }).on('mouseleave',function(e,d){
-    if(!d.pinned){d3.select(this).select('circle').attr('stroke',getComputedStyle(document.documentElement).getPropertyValue('--panel').trim()).attr('stroke-width',1);}
-    d3.select(this).select('text').classed('label-strong',false);
-  });
-  bubbles.on('click',function(e,d){d.pinned=!d.pinned;if(d.pinned){d.fx=d.x;d.fy=d.y;}else{d.fx=null;d.fy=null;}
-    d3.select(this).select('circle').classed('fixed',d.pinned);});
-  sim.on('tick',()=>{
-    links.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-    bubbles.attr('transform',d=>`translate(${d.x},${d.y})`);
-  });
-  window.addEventListener('resize',()=>{
-    const w=container.clientWidth,h=container.clientHeight;
-    svg.attr('viewBox',`0 0 ${w} ${h}`);
-    groupAnchors.forEach((a,i)=>{a.fx=(w/(groups.length+1))*(i+1);a.fy=h*0.45});
-    sim.alpha(0.7).restart();
-  });
-  function dragstarted(event,d){if(!event.active) sim.alphaTarget(0.12).restart();d.fx=d.x;d.fy=d.y;}
-  function dragged(event,d){d.fx=event.x;d.fy=event.y;}
-  function dragended(event,d){if(!event.active) sim.alphaTarget(0);if(!d.pinned){d.fx=null;d.fy=null;}}
-})();
-</script>
+  <!-- Scroll reveal + stagger -->
+  <script>
+    (function(){
+      const els = Array.from(document.querySelectorAll('.reveal'));
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.12});
+      els.forEach((el,i)=>{
+        el.style.transitionDelay = (i*90)+'ms'; // leve escalonado
+        obs.observe(el);
+      });
+    })();
+  </script>
+
+  <!-- Concept map -->
+  <script>
+  (function(){
+    const interests = [
+      { text: "Robotics & Autonomous Navigation", weight: 10, group:"Robotics" },
+      { text: "Computer Vision & Artificial Intelligence", weight: 10, group:"AI" },
+      { text: "Aerospace & Space Robotics", weight: 8, group:"Robotics" },
+      { text: "Climate & Environmental Data Science", weight: 7, group:"Data" },
+      { text: "Human Health & Well-being", weight: 6, group:"Human" },
+      { text: "Psychology, Human Behavior & Learning", weight: 8, group:"Human" },
+      { text: "Perfection & Performance Optimization", weight: 7, group:"Human" },
+      { text: "Running, Endurance & Sports Science", weight: 6, group:"Human" },
+      { text: "Languages, Culture & Travel", weight: 6, group:"Human" },
+      { text: "Photography & Videography", weight: 5, group:"Art" },
+    ];
+    const container = document.getElementById('interest-map');
+    const W = container.clientWidth, H = container.clientHeight;
+    const svg = d3.select(container).append('svg')
+      .attr('viewBox', `0 0 ${W} ${H}`)
+      .attr('preserveAspectRatio','xMidYMid meet');
+    const r = d3.scaleSqrt().domain([5,10]).range([34,72]);
+    const groups = Array.from(new Set(interests.map(d=>d.group)));
+    const groupAnchors = groups.map((g,i)=> ({fx:(W/(groups.length+1))*(i+1),fy:H*0.45,group:g,anchor:true}));
+    const nodes = interests.map(d=>({...d,radius:r(d.weight),x:Math.random()*W,y:Math.random()*H,pinned:false}));
+    const allNodes = nodes.concat(groupAnchors);
+    const sim = d3.forceSimulation(allNodes)
+      .force('charge', d3.forceManyBody().strength(-40))
+      .force('collide', d3.forceCollide().radius(d=> (d.anchor?0:d.radius+6)).iterations(2))
+      .force('x', d3.forceX(d=>{const a=groupAnchors.find(g=>g.group===d.group);return a?a.fx:W/2}).strength(d=>d.anchor?0:0.05))
+      .force('y', d3.forceY(d=>{const a=groupAnchors.find(g=>g.group===d.group);return a?a.fy:H/2}).strength(d=>d.anchor?0:0.05))
+      .alpha(1).alphaDecay(0.03);
+    const linksData = nodes.map(n=>{const a=groupAnchors.find(g=>g.group===n.group);return {source:a,target:n}});
+    const links = svg.append('g').attr('stroke','rgba(255,255,255,0.06)').attr('stroke-width',1)
+      .selectAll('line').data(linksData).enter().append('line');
+    const g = svg.append('g');
+    const bubbles = g.selectAll('g.node').data(nodes).enter().append('g').attr('class','node')
+      .call(d3.drag().on('start',dragstarted).on('drag',dragged).on('end',dragended));
+    bubbles.append('circle').attr('class','bubble').attr('r',d=>d.radius);
+    bubbles.append('text').attr('class','label').each(function(d){
+      const maxChars=22,words=d.text.split(' ');let line=[],lines=[];
+      words.forEach(w=>{const test=[...line,w].join(' ');if(test.length>maxChars){lines.push(line.join(' '));line=[w]}else line.push(w)});
+      lines.push(line.join(' '));
+      d3.select(this).selectAll('tspan').data(lines).enter().append('tspan')
+        .attr('x',0).attr('dy',(l,i)=> i===0?'0':'1.2em').text(l=>l);
+    });
+    bubbles.on('mouseenter',function(e,d){
+      d3.select(this).select('circle')
+        .attr('stroke',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim())
+        .attr('stroke-width',2);
+      d3.select(this).select('text').classed('label-strong',true);
+    }).on('mouseleave',function(e,d){
+      if(!d.pinned){
+        d3.select(this).select('circle')
+          .attr('stroke',getComputedStyle(document.documentElement).getPropertyValue('--panel').trim())
+          .attr('stroke-width',1);
+      }
+      d3.select(this).select('text').classed('label-strong',false);
+    });
+    bubbles.on('click',function(e,d){
+      d.pinned=!d.pinned;
+      if(d.pinned){d.fx=d.x;d.fy=d.y;} else {d.fx=null;d.fy=null;}
+      d3.select(this).select('circle').classed('fixed',d.pinned);
+    });
+    sim.on('tick',()=>{
+      links.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+      bubbles.attr('transform',d=>`translate(${d.x},${d.y})`);
+    });
+    window.addEventListener('resize',()=>{
+      const w=container.clientWidth,h=container.clientHeight;
+      svg.attr('viewBox',`0 0 ${w} ${h}`);
+      groupAnchors.forEach((a,i)=>{a.fx=(w/(groups.length+1))*(i+1);a.fy=h*0.45});
+      sim.alpha(0.7).restart();
+    });
+    function dragstarted(event,d){if(!event.active) sim.alphaTarget(0.12).restart();d.fx=d.x;d.fy=d.y;}
+    function dragged(event,d){d.fx=event.x;d.fy=event.y;}
+    function dragended(event,d){if(!event.active) sim.alphaTarget(0);if(!d.pinned){d.fx=null;d.fy=null;}}
+  })();
+  </script>
 </body>
 </html>
