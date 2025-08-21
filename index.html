@@ -1,77 +1,114 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Francisco Anaya Palacios — Robotics & AI Engineer</title>
+  <meta name="description" content="Portfolio of Francisco Anaya Palacios — Robotics, Computer Vision, AI & Data Science." />
   <style>
-    :root {
-      --bg: #0f172a;
-      --fg: #e2e8f0;
-      --muted: #94a3b8;
-      --card: #1e293b;
-      --accent: #38bdf8;
+    :root{
+      --bg:#0b1020;--panel:#111827;--fg:#e6eaf2;--muted:#9aa4b2;--accent:#3cc6ff;--line:#243041;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg); color: var(--fg); line-height: 1.6;
-    }
-    header {
-      text-align: center; padding: 60px 20px;
-      background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
-    }
-    header h1 { font-size: 42px; margin-bottom: 12px; }
-    header p { color: var(--muted); font-size: 18px; }
-    main { max-width: 960px; margin: auto; padding: 40px 20px; }
-    .card {
-      background: var(--card); border-radius: 16px;
-      padding: 24px; margin-bottom: 28px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-    h2 { margin-bottom: 12px; font-size: 26px; color: var(--accent); }
-    ul { padding-left: 20px; margin-bottom: 16px; }
-    a { color: var(--accent); text-decoration: none; font-weight: 500; }
-    a:hover { text-decoration: underline; }
-    footer {
-      text-align: center; padding: 30px 20px;
-      color: var(--muted); font-size: 14px;
-      border-top: 1px solid #334155;
-      margin-top: 40px;
-    }
-    .links { margin-top: 10px; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0a0f1e 0%,#0b1020 50%,#0e1426 100%);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1040px;margin:0 auto;padding:24px}
+    header{padding:64px 0 24px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+    header img{width:160px;height:160px;object-fit:cover;border-radius:50%;border:3px solid var(--accent);box-shadow:0 4px 18px rgba(0,0,0,.5)}
+    .intro{flex:1}
+    .intro h1{font-size:40px;margin:0 0 8px}
+    .intro p{margin:6px 0;color:var(--muted);max-width:720px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{background:var(--accent);color:#071018;padding:10px 14px;border-radius:12px;font-weight:600;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .btn.secondary{background:transparent;color:var(--fg);border:1px solid var(--line)}
+    section{padding:28px 0}
+    h2{font-size:24px;margin:4px 0 16px;color:var(--accent)}
+    .card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:8px}
+    .card ul{margin:8px 0 0 18px;padding:0}
+    .card li{margin:6px 0}
+    .links{margin-top:10px;font-size:15px}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);text-align:center;margin-top:8px}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Francisco Anaya Palacios</h1>
-    <p>Robotics • Computer Vision • AI • Data Science</p>
-  </header>
-  <main>
-    <div class="card">
-      <h2>🚀 Thesis Project — Autonomous 3D Mapping & Robotic Navigation</h2>
-      <p><i>Bachelor Thesis, graded with Honors (<span lang="es">Matrícula de Honor</span>)</i></p>
-      <ul>
-        <li>Developed a full-stack robotic system integrating UGV, LiDAR, RGB-D, IMU & GPS-RTK.</li>
-        <li>Implemented SLAM (FAST-LIO2, ICP) in ROS2 for navigation in GPS-denied environments.</li>
-        <li>Validated robustness with real-world field tests and contributed reproducible open-source results.</li>
-      </ul>
-      <div class="links">
-        ➜ <a href="https://github.com/FranciscoAnayaPalacios/TFG">GitHub Code</a> ·
-        <a href="https://doi.org/10.5281/zenodo.15301791">Dataset DOI</a> ·
-        <a href="tesis.pdf">Thesis PDF</a> ·
-        <a href="slides.pdf">Slides</a>
+  <div class="container">
+    <header>
+      <div class="intro">
+        <h1>Francisco Anaya Palacios</h1>
+        <p>Robotics • Computer Vision • AI • Data Science</p>
+        <div class="cta">
+          <a class="btn" href="cv.pdf">⬇ Download CV (PDF)</a>
+          <a class="btn secondary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#about">About</a>
+        </div>
       </div>
-    </div>
+      <img src="me.jpg" alt="Francisco Anaya Palacios photo">
+      
+    </header>
 
-    <div class="card">
-      <h2>📂 Resume</h2>
-      <p>Download my CV in PDF format:</p>
-      <p><a href="cv.pdf">➡ Resume (PDF)</a></p>
-    </div>
-  </main>
-  <footer>
-    © 2025 Francisco Anaya Palacios · Powered by GitHub Pages
-  </footer>
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>Engineer specialized in <b>Robotics</b>, <b>Computer Vision</b> and <b>Data Science</b>.  
+        I design and implement autonomous systems, focusing on reproducibility, datasets, and open-source contributions.</p>
+        <p>Personal page: <a href="https://#">francisco-anaya.dev</a> · LinkedIn: <a href="https://#">linkedin.com/in/francisco-anaya</a> · GitHub: <a href="https://github.com/FranciscoAnayaPalacios">/FranciscoAnayaPalacios</a></p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="card">
+        <h3>🚀 Thesis — 3D LiDAR-Based Outdoor Mapping & Autonomous Navigation (SLAM)</h3>
+        <div class="meta">University of Málaga · Honors / Matrícula de Honor</div>
+        <ul>
+          <li>Designed a <b>full-stack robotic system</b> integrating LiDAR, RGB-D, IMU & GPS-RTK in <b>ROS2</b>.</li>
+          <li>Implemented <b>ICP</b> and <b>FAST-LIO2</b> for SLAM in GPS-denied environments.</li>
+          <li>Automated error tests and voxelization strategies; validated on <b>Agilex Hunter 2.0 UGV</b>.</li>
+        </ul>
+        <div class="links">Links: 
+          <a href="https://github.com/FranciscoAnayaPalacios/TFG">GitHub</a> · 
+          <a href="https://doi.org/10.5281/zenodo.15301791">Dataset DOI</a> · 
+          <a href="tesis.pdf">Thesis PDF</a> · 
+          <a href="slides.pdf">Slides</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🌍 European R&D — Data Science & Innovation (Cetaqua)</h3>
+        <ul>
+          <li>Built <b>data pipelines</b> & <b>data models</b> for large-scale environmental datasets.</li>
+          <li>Applied <b>Granger causality</b> and temporal analysis for forecasting under non-linear dynamics.</li>
+          <li>Automated reporting using <b>Google Apps Script</b> and Python.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🧬 Computer Vision — Droplet & Cell Detection</h3>
+        <div class="meta">University of Liège · Best overall performance in class</div>
+        <ul>
+          <li>Developed detection algorithm for <b>microdroplets & encapsulated cells</b>.</li>
+          <li>Validated against Cytomine ground truth, <b>&lt;5% error</b>.</li>
+          <li>Collaborated in multidisciplinary team, recognized for <b>highest accuracy</b>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🤖 Group Project — Control & Programming of Robots</h3>
+        <div class="meta">University Coursework</div>
+        <p>Collaborative project focused on robot control and programming, integrating multiple team contributions.</p>
+        <div class="links">
+          🔗 <a href="https://www.linkedin.com/feed/update/urn:li:activity:7146386862213967872/">See publication on LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Francisco Anaya Palacios — Portfolio
+    </footer>
+  </div>
 </body>
 </html>
