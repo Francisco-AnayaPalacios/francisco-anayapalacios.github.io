@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Francisco Anaya Palacios — Robotics & AI Engineer</title>
   <meta name="description" content="Robotics, Computer Vision, AI & Data Science. Honors Thesis, public dataset (DOI), European R&D projects." />
-  
+
   <!-- Fuentes elegantes tipo editorial/luxury -->
   <link href="https://fonts.googleapis.com/css2?family=Didot&family=Playfair+Display:wght@400;600&family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
-  
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
   <style>
     :root{
       --bg:#0b1020;--panel:#111827;--fg:#e6eaf2;--muted:#9aa4b2;
@@ -23,142 +24,55 @@
       font-family:var(--bfont);
       -webkit-font-smoothing:antialiased;
     }
-
-    /* Links */
-    a{
-      color:var(--accent);
-      text-decoration:none;
-      transition:all .25s ease;
-      cursor:pointer;
-    }
-    a:hover{
-      color:#fff;
-      text-shadow:0 0 6px var(--accent);
-    }
-
+    a{color:var(--accent);text-decoration:none;transition:all .25s ease;cursor:pointer}
+    a:hover{color:#fff;text-shadow:0 0 6px var(--accent)}
     .container{max-width:1040px;margin:0 auto;padding:24px}
-
-    /* Header */
-    header{
-      padding:56px 0 24px;
-      border-bottom:1px solid var(--panel);
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:24px;align-items:center;
-      animation: fadeIn 1s ease-out;
-    }
-    .intro h1{
-      font-family:var(--hfont);
-      font-size:46px;
-      letter-spacing:1px;
-      margin:0 0 10px;
-      color:var(--accent);
-    }
+    header{padding:56px 0 24px;border-bottom:1px solid var(--panel);
+      display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+    .intro h1{font-family:var(--hfont);font-size:46px;letter-spacing:1px;margin:0 0 10px;color:var(--accent)}
     .subtitle{margin:6px 0;color:var(--muted);font-size:18px}
-
-    /* Buttons */
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{
-      background:var(--accent);
-      color:#071018;
-      padding:10px 16px;
-      border-radius:12px;
-      font-weight:600;
-      box-shadow:0 6px 14px rgba(0,0,0,.3);
-      transition:all .25s ease;
-    }
-    .btn.secondary{
-      background:transparent;
-      color:var(--fg);
-      border:1px solid var(--panel);
-    }
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 18px rgba(0,0,0,.45);
-    }
-
-    /* Sections */
-    section{padding:50px 0;opacity:0;transform:translateY(30px);transition:all 1s ease;}
-    section.visible{opacity:1;transform:translateY(0);}
-    h2{
-      font-family:var(--hfont);
-      font-size:26px;
-      margin:4px 0 24px;
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      border-bottom:1px solid var(--accent);
-      display:inline-block;
-      padding-bottom:6px;
-    }
-
-    /* Cards */
-    .card{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--panel);
-      border-radius:16px;
-      padding:22px;
-      margin-bottom:26px;
-      transition:all .3s ease;
-    }
-    .card:hover{
-      box-shadow:0 12px 28px rgba(0,0,0,.35);
-      transform:translateY(-4px);
-    }
-    .card h3{
-      font-family:var(--hfont);
-      font-size:20px;
-      margin:0 0 8px;
-      color:var(--fg);
-      transition:color .3s ease;
-    }
-    .card:hover h3{color:var(--accent);}
+    .btn{background:var(--accent);color:#071018;padding:10px 16px;border-radius:12px;
+      font-weight:600;box-shadow:0 6px 14px rgba(0,0,0,.3);transition:all .25s ease}
+    .btn.secondary{background:transparent;color:var(--fg);border:1px solid var(--panel)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.45)}
+    section{padding:50px 0}
+    h2{font-family:var(--hfont);font-size:26px;margin:4px 0 24px;color:var(--accent);
+      text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid var(--accent);
+      display:inline-block;padding-bottom:6px}
+    .card{background:rgba(255,255,255,.03);border:1px solid var(--panel);
+      border-radius:16px;padding:22px;margin-bottom:26px;transition:all .3s ease}
+    .card:hover{box-shadow:0 12px 28px rgba(0,0,0,.35);transform:translateY(-2px)}
+    .card h3{font-family:var(--hfont);font-size:20px;margin:0 0 8px;color:var(--fg);transition:color .3s ease}
+    .card:hover h3{color:var(--accent)}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px;font-style:italic}
     .card ul{margin:8px 0 0 18px;padding:0}
     .card li{margin:6px 0}
-
     .links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;font-size:15px}
-
-    /* Avatar elegante */
-    .avatar-wrap{
-      width:220px;
-      border-radius:18px;
-      padding:6px;
+    .avatar-wrap{width:220px;border-radius:18px;padding:6px;
       background:linear-gradient(145deg,#bfa36f55,#d4c29a33);
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
-    }
-    .avatar{
-      width:100%;height:auto;display:block;
-      border-radius:14px;
-      object-fit:contain;
-    }
-
-    /* Chips */
+      box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .avatar{width:100%;height:auto;display:block;border-radius:14px;object-fit:contain}
     .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .chip{
-      background:#0f172a;
-      border:1px solid #1f2937;
-      border-radius:999px;
-      padding:6px 12px;
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.5px;
-      transition:all .25s ease;
-    }
-    .chip:hover{color:var(--accent);border-color:var(--accent);cursor:default;}
+    .chip{background:#0f172a;border:1px solid #1f2937;border-radius:999px;padding:6px 12px;
+      font-size:12px;color:var(--muted);letter-spacing:.5px;transition:all .25s ease}
+    .chip:hover{color:var(--accent);border-color:var(--accent);cursor:default}
+    footer{border-top:1px solid var(--panel);padding:28px 0;color:var(--muted);
+      text-align:center;margin-top:8px;font-size:14px}
 
-    footer{
-      border-top:1px solid var(--panel);
-      padding:28px 0;
-      color:var(--muted);
-      text-align:center;
-      margin-top:8px;
-      font-size:14px;
-    }
-
-    @keyframes fadeIn {
-      from{opacity:0;transform:translateY(20px);}
-      to{opacity:1;transform:translateY(0);}
+    /* Concept map styles */
+    #interest-map svg { display:block; width:100%; height:100%; }
+    .bubble { fill: rgba(255,255,255,0.05); stroke: var(--panel); stroke-width: 1px;
+      transition: fill .2s ease, stroke .2s ease, filter .2s ease; }
+    .bubble:hover { fill: rgba(191,163,111,0.22); stroke: var(--accent);
+      filter: drop-shadow(0 6px 14px rgba(191,163,111,0.20)); }
+    .label { font-family: var(--bfont); font-weight: 400; font-size: 13px; fill: var(--fg);
+      pointer-events: none; text-anchor: middle; }
+    .label-strong { font-family: var(--hfont); font-weight: 600; letter-spacing: .3px; }
+    .fixed { stroke-dasharray: 2 2; }
+    @media (max-width: 640px){
+      #interest-map { height: 420px; }
+      .label { font-size: 12px; }
     }
   </style>
 </head>
@@ -210,7 +124,6 @@
           <a href="slides.pdf">Slides</a>
         </div>
       </div>
-      
       <div class="card">
         <h3>🌍 European R&D — Data Science & Innovation</h3>
         <div class="meta">Cetaqua</div>
@@ -220,7 +133,6 @@
           <li>Automated reporting with Python & Google Apps Script.</li>
         </ul>
       </div>
-      
       <div class="card">
         <h3>🧬 Computer Vision — Droplet & Cell Detection</h3>
         <div class="meta">University of Liège · Best in class</div>
@@ -231,34 +143,98 @@
       </div>
     </section>
 
-    <section id="interests">
-      <h2>Interests</h2>
-      <div class="card">
-        <div class="chips">
-          <span class="chip">Aerospace</span>
-          <span class="chip">Human Health</span>
-          <span class="chip">Psychology</span>
-          <span class="chip">Learning</span>
-          <span class="chip">Sports Science</span>
-          <span class="chip">Architecture</span>
-          <span class="chip">Photography</span>
-          <span class="chip">Travel</span>
-        </div>
+    <section id="interests" aria-labelledby="interests-h">
+      <h2 id="interests-h">Interests</h2>
+      <div class="card" style="overflow:hidden;">
+        <noscript>
+          <p style="color:var(--muted)">Enable JavaScript to explore the interactive concept map.</p>
+          <ul style="margin:8px 0 0 18px">
+            <li>Robotics & Autonomous Navigation</li>
+            <li>Computer Vision & Artificial Intelligence</li>
+            <li>Aerospace & Space Robotics</li>
+            <li>Climate & Environmental Data Science</li>
+            <li>Human Health & Well-being</li>
+            <li>Psychology, Human Behavior & Learning</li>
+            <li>Perfection & Performance Optimization</li>
+            <li>Running, Endurance & Sports Science</li>
+            <li>Languages, Culture & Travel</li>
+            <li>Photography & Videography</li>
+          </ul>
+        </noscript>
+        <div id="interest-map" role="img" aria-label="Interactive concept map of Francisco's interests" style="width:100%;height:520px"></div>
       </div>
     </section>
 
     <footer>© 2025 Francisco Anaya Palacios — Portfolio</footer>
   </div>
 
-  <!-- Scroll reveal UX -->
-  <script>
-    const sections=document.querySelectorAll("section");
-    const obs=new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){e.target.classList.add("visible");}
-      });
-    },{threshold:0.15});
-    sections.forEach(s=>obs.observe(s));
-  </script>
+<script>
+(function(){
+  const interests = [
+    { text: "Robotics & Autonomous Navigation", weight: 10, group:"Robotics" },
+    { text: "Computer Vision & Artificial Intelligence", weight: 10, group:"AI" },
+    { text: "Aerospace & Space Robotics", weight: 8, group:"Robotics" },
+    { text: "Climate & Environmental Data Science", weight: 7, group:"Data" },
+    { text: "Human Health & Well-being", weight: 6, group:"Human" },
+    { text: "Psychology, Human Behavior & Learning", weight: 8, group:"Human" },
+    { text: "Perfection & Performance Optimization", weight: 7, group:"Human" },
+    { text: "Running, Endurance & Sports Science", weight: 6, group:"Human" },
+    { text: "Languages, Culture & Travel", weight: 6, group:"Human" },
+    { text: "Photography & Videography", weight: 5, group:"Art" },
+  ];
+  const container = document.getElementById('interest-map');
+  const W = container.clientWidth, H = container.clientHeight;
+  const svg = d3.select(container).append('svg')
+    .attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('preserveAspectRatio','xMidYMid meet');
+  const r = d3.scaleSqrt().domain([5,10]).range([34,72]);
+  const groups = Array.from(new Set(interests.map(d=>d.group)));
+  const groupAnchors = groups.map((g,i)=> ({fx:(W/(groups.length+1))*(i+1),fy:H*0.45,group:g,anchor:true}));
+  const nodes = interests.map(d=>({...d,radius:r(d.weight),x:Math.random()*W,y:Math.random()*H,pinned:false}));
+  const allNodes = nodes.concat(groupAnchors);
+  const sim = d3.forceSimulation(allNodes)
+    .force('charge', d3.forceManyBody().strength(-40))
+    .force('collide', d3.forceCollide().radius(d=> (d.anchor?0:d.radius+6)).iterations(2))
+    .force('x', d3.forceX(d=>{const a=groupAnchors.find(g=>g.group===d.group);return a?a.fx:W/2}).strength(d=>d.anchor?0:0.04))
+    .force('y', d3.forceY(d=>{const a=groupAnchors.find(g=>g.group===d.group);return a?a.fy:H/2}).strength(d=>d.anchor?0:0.04))
+    .alpha(1).alphaDecay(0.03);
+  const linksData = nodes.map(n=>{const a=groupAnchors.find(g=>g.group===n.group);return {source:a,target:n}});
+  const links = svg.append('g').attr('stroke','rgba(255,255,255,0.06)').attr('stroke-width',1)
+    .selectAll('line').data(linksData).enter().append('line');
+  const g = svg.append('g');
+  const bubbles = g.selectAll('g.node').data(nodes).enter().append('g').attr('class','node')
+    .call(d3.drag().on('start',dragstarted).on('drag',dragged).on('end',dragended));
+  bubbles.append('circle').attr('class','bubble').attr('r',d=>d.radius);
+  bubbles.append('text').attr('class','label').each(function(d){
+    const maxChars=22,words=d.text.split(' ');let line=[],lines=[];
+    words.forEach(w=>{const test=[...line,w].join(' ');if(test.length>maxChars){lines.push(line.join(' '));line=[w]}else line.push(w)});
+    lines.push(line.join(' '));
+    d3.select(this).selectAll('tspan').data(lines).enter().append('tspan')
+      .attr('x',0).attr('dy',(l,i)=> i===0?'0':'1.2em').text(l=>l);
+  });
+  bubbles.on('mouseenter',function(e,d){
+    d3.select(this).select('circle').attr('stroke',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()).attr('stroke-width',2);
+    d3.select(this).select('text').classed('label-strong',true);
+  }).on('mouseleave',function(e,d){
+    if(!d.pinned){d3.select(this).select('circle').attr('stroke',getComputedStyle(document.documentElement).getPropertyValue('--panel').trim()).attr('stroke-width',1);}
+    d3.select(this).select('text').classed('label-strong',false);
+  });
+  bubbles.on('click',function(e,d){d.pinned=!d.pinned;if(d.pinned){d.fx=d.x;d.fy=d.y;}else{d.fx=null;d.fy=null;}
+    d3.select(this).select('circle').classed('fixed',d.pinned);});
+  sim.on('tick',()=>{
+    links.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    bubbles.attr('transform',d=>`translate(${d.x},${d.y})`);
+  });
+  window.addEventListener('resize',()=>{
+    const w=container.clientWidth,h=container.clientHeight;
+    svg.attr('viewBox',`0 0 ${w} ${h}`);
+    groupAnchors.forEach((a,i)=>{a.fx=(w/(groups.length+1))*(i+1);a.fy=h*0.45});
+    sim.alpha(0.7).restart();
+  });
+  function dragstarted(event,d){if(!event.active) sim.alphaTarget(0.12).restart();d.fx=d.x;d.fy=d.y;}
+  function dragged(event,d){d.fx=event.x;d.fy=event.y;}
+  function dragended(event,d){if(!event.active) sim.alphaTarget(0);if(!d.pinned){d.fx=null;d.fy=null;}}
+})();
+</script>
 </body>
 </html>
